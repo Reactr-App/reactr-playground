@@ -1,0 +1,331 @@
+# Cursor Rules for Reactr Playground
+
+## Project Purpose & Structure
+
+**Reactr** is a platform that enables creators to monetize their content through interactive offerings where supporters can request custom content reactions, covers, and more. This project is a **demo showcase platform** for static UI/UX experiences of the Reactr platform - we build and showcase different interface variations without database connections or network calls.
+
+## Reactr Platform Overview
+
+### Core Entities
+- **Creators**: Content creators who set up offerings and fulfill requests
+- **Supporters**: Fans who purchase offerings and make content requests
+- **Offerings**: Configurable products (content requests, polls, Q&A, suggestions, live queues)
+- **Requests**: Individual supporter submissions with content links/details
+- **Groups**: Segmented supporter access with different pricing/limits
+
+### Offering Types
+- **Content Requests**: Supporters submit YouTube/Spotify/IMDb links, creators fulfill with reactions/covers
+- **Polls & Voting**: Interactive polls for community engagement
+- **Q&A Sessions**: Live question and answer interactions
+- **Suggestions**: Community-driven content ideas
+- **Live Stream Queues**: Interactive request queues during live streams
+
+### Platform Features
+- **Multi-Channel Integration**: Patreon, Twitch, YouTube, Discord
+- **Dynamic Configuration**: Custom pricing, limits, visibility per offering
+- **Supporter Groups**: Tier-based access with override capabilities
+- **Content Parsing**: Automatic metadata extraction from submitted links
+- **Live Interactions**: Real-time queue management and community engagement
+
+### Domain Terminology (Use in Demos)
+- **Offerings** (not "products" or "services")
+- **Requests** (not "orders" or "purchases")
+- **Supporters** (not "customers" or "users")
+- **Fulfillment** (when creators complete requests)
+- **Tiers** (Patreon/Twitch subscription levels)
+- **Concurrent Requests** (multiple active requests at once)
+- **Request Limits** (per-user or per-offering restrictions)
+
+### Demo Organization
+- **Landing Page**: Directory of all demo groups (`src/app/page.tsx`)
+- **Demo Groups**: Organized by user type (e.g., `creator/`, `admin/`, `user/`)
+- **Feature Folders**: Group related demos by feature (e.g., `dashboard/`, `profile/`, `settings/`)
+- **Demo Iterations**: Numbered demos within each feature (e.g., `demo1/`, `demo2/`, `demo3/`)
+- **Static Only**: No API calls, no database - pure static experiences with mock data
+
+### URL Structure
+```
+/{group}/{feature}/demo{n}
+/creator/dashboard/demo1  # Creator dashboard variation 1
+/creator/dashboard/demo2  # Creator dashboard variation 2
+/admin/settings/demo1     # Admin settings variation 1
+/user/profile/demo1       # User profile variation 1
+```
+
+### Adding New Demos
+1. **Create Group**: `mkdir src/app/{group}` (e.g., `src/app/creator/`)
+2. **Create Feature**: `mkdir src/app/{group}/{feature}` (e.g., `src/app/creator/dashboard/`)
+3. **Add Demo**: `mkdir src/app/{group}/{feature}/demo{n}` and create `page.tsx`
+4. **Update Landing**: Add entry to demo groups array in `src/app/page.tsx`
+5. **Group Related**: Use same feature folder for variations of the same experience
+
+### Demo Best Practices
+- Use realistic mock data that represents actual use cases
+- Include multiple states (loading, empty, error, success)
+- Demonstrate interactions and animations
+- Keep demos focused on specific experiences/features
+- Use the component library for consistency
+- Always add new demos to the landing page directory (`src/app/page.tsx`)
+- Group related demos by feature (dashboard, profile, settings, etc.)
+- Use numbered demo folders (demo1, demo2, demo3...) for iterations
+- Each demo should represent a variation of the same experience
+
+### Demo Categories to Create
+- **Creator Dashboard**: Offering management, analytics, request fulfillment
+- **Supporter Portal**: Browse offerings, submit requests, view history
+- **Live Stream Tools**: Interactive queues, real-time engagement
+- **Admin Settings**: Offering configuration, supporter group management
+- **Content Parsing**: Link submission and metadata display
+- **Payment Integration**: Tier selection, pricing displays
+
+## Component Library Structure
+
+This project has a well-organized component library in `src/app/lib/` that should be used for all UI interactions. Always prefer existing components over creating new ones.
+
+### 📁 Library Structure
+
+```
+src/app/lib/
+├── elements/           # Basic UI building blocks
+└── theme/             # Theme management
+```
+
+## 🎯 Elements (Basic UI Components)
+
+Use these for basic interactions and UI building blocks. Import from `@/lib/elements`:
+
+### Core Components
+```tsx
+import { Button, Avatar, Badge, Link, Logo } from '@/lib/elements'
+
+// Primary button
+<Button>Click me</Button>
+
+// Outlined button
+<Button outline>Secondary</Button>
+
+// Danger button
+<Button danger>Delete</Button>
+
+// Avatar with image
+<Avatar src="/avatar.jpg" alt="User" />
+
+// Status badge
+<Badge color="green">Active</Badge>
+```
+
+### Form Components
+```tsx
+import { Input, Textarea, Checkbox, Select, Switch } from '@/lib/elements'
+
+// Text input
+<Input placeholder="Enter text..." />
+
+// Textarea
+<Textarea rows={4} placeholder="Enter description..." />
+
+// Checkbox
+<Checkbox label="Agree to terms" />
+
+// Select dropdown
+<Select>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</Select>
+```
+
+### Layout Components
+```tsx
+import { SidebarLayout, StackedLayout, AuthLayout } from '@/lib/elements'
+
+// Sidebar layout
+<SidebarLayout>
+  <Sidebar>Navigation</Sidebar>
+  <main>Main content</main>
+</SidebarLayout>
+
+// Stacked layout
+<StackedLayout>
+  <div>Header content</div>
+  <div>Main content</div>
+  <div>Footer content</div>
+</StackedLayout>
+```
+
+### Data Display
+```tsx
+import { Table, Pagination, DescriptionList } from '@/lib/elements'
+
+// Table
+<Table>
+  <TableHead>
+    <TableRow>
+      <TableHeader>Name</TableHeader>
+      <TableHeader>Email</TableHeader>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>John Doe</TableCell>
+      <TableCell>john@example.com</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+
+// Pagination
+<Pagination>
+  <PaginationPrevious href="/page/1" />
+  <PaginationPage href="/page/2" current />
+  <PaginationNext href="/page/3" />
+</Pagination>
+```
+
+### Overlays & Dialogs
+```tsx
+import { Dialog, Alert, Tooltip } from '@/lib/elements'
+
+// Modal dialog
+<Dialog>
+  <DialogTrigger>Open Dialog</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>Description here</DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <Button>Close</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+
+// Tooltip
+<Tooltip>
+  <TooltipTrigger>Hover me</TooltipTrigger>
+  <TooltipContent>Tooltip content</TooltipContent>
+</Tooltip>
+```
+
+## 🧩 Components (Complex Features)
+
+Use these for specific features. Import from `@/lib/components`:
+
+### Animation Components
+```tsx
+import { AnimatedCollapse, FadeIn } from '@/lib/components'
+
+// Animated collapse
+<AnimatedCollapse isOpen={isOpen}>
+  <div>Collapsible content</div>
+</AnimatedCollapse>
+
+// Fade in animation
+<FadeIn>
+  <div>Content that fades in</div>
+</FadeIn>
+```
+
+### Drawer Components
+```tsx
+import { DrawerBase } from '@/lib/components'
+
+// Base drawer
+<DrawerBase open={isOpen} onClose={() => setIsOpen(false)}>
+  <div>Drawer content</div>
+</DrawerBase>
+```
+
+### Form Components
+```tsx
+import { HandleInput, QuilEditor } from '@/lib/components'
+
+// Handle input (for social handles)
+<HandleInput platform="twitter" />
+
+// Rich text editor
+<QuilEditor value={content} onChange={setContent} />
+```
+
+### Search Components
+```tsx
+import { UniversalSearchButton, UniversalSearchOverlay } from '@/lib/components'
+
+// Search button
+<UniversalSearchButton onClick={openSearch} />
+
+// Search overlay
+<UniversalSearchOverlay isOpen={searchOpen} onClose={closeSearch} />
+```
+
+### Loading States
+```tsx
+import { ProfileShimmer, ImageShimmer } from '@/lib/components'
+
+// Profile loading skeleton
+<ProfileShimmer />
+
+// Image loading placeholder
+<ImageShimmer />
+```
+
+## 🎨 Theme Management
+
+```tsx
+import { ThemeProvider, ThemeToggle } from '@/lib/theme'
+
+// Wrap app with theme provider
+<ThemeProvider>
+  <App />
+</ThemeProvider>
+
+// Theme toggle button
+<ThemeToggle />
+```
+
+## 📝 Development Guidelines
+
+### ✅ DO:
+- Always import components from `@/lib/elements` or `@/lib/components`
+- Use existing components for common UI patterns
+- Check if a component already exists before creating new ones
+- Follow the established naming conventions
+- Use the theme system for consistent styling
+
+### ❌ DON'T:
+- Create new button/input components - use the ones from elements
+- Duplicate existing functionality
+- Style components from scratch when library components exist
+- Ignore the established design system
+
+### 🔍 When to Create New Components
+
+Only create new components when:
+- No existing component meets the specific requirements
+- The functionality is truly unique to this project
+- You've checked all existing components in the library
+- The new component follows the established patterns
+
+### 📚 Component Categories
+
+**Elements** = Basic building blocks (buttons, inputs, layout)
+**Components** = Feature-specific implementations (search, drawers, forms)
+
+Always start with Elements for basic UI, then use Components for complex features.
+
+## 🚀 Quick Start
+
+```tsx
+// 1. Import what you need
+import { Button, Input, Dialog } from '@/lib/elements'
+
+// 2. Use existing components
+function MyComponent() {
+  return (
+    <div>
+      <Button onClick={() => console.log('clicked')}>Click me</Button>
+      <Input placeholder="Type here" />
+    </div>
+  )
+}
+```
+
+This ensures consistency, maintainability, and follows the established design system.

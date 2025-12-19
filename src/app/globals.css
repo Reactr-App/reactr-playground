@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Cabinet Grotesk Font Faces */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src:
+    url("/fonts/CabinetGrotesk-Light.woff2") format("woff2"),
+    url("/fonts/CabinetGrotesk-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src:
+    url("/fonts/CabinetGrotesk-Regular.woff2") format("woff2"),
+    url("/fonts/CabinetGrotesk-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src:
+    url("/fonts/CabinetGrotesk-Medium.woff2") format("woff2"),
+    url("/fonts/CabinetGrotesk-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src:
+    url("/fonts/CabinetGrotesk-Bold.woff2") format("woff2"),
+    url("/fonts/CabinetGrotesk-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src:
+    url("/fonts/CabinetGrotesk-Extrabold.woff2") format("woff2"),
+    url("/fonts/CabinetGrotesk-Extrabold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Cabinet Grotesk Utility Classes */
+.font-cabinet {
+  font-family: "Cabinet Grotesk", system-ui, sans-serif;
+  font-weight: 400;
+}
+
+.font-cabinet-light {
+  font-family: "Cabinet Grotesk", system-ui, sans-serif;
+  font-weight: 300;
+}
+
+.font-cabinet-medium {
+  font-family: "Cabinet Grotesk", system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.font-cabinet-bold {
+  font-family: "Cabinet Grotesk", system-ui, sans-serif;
+  font-weight: 700;
+}
+
+.font-cabinet-extrabold {
+  font-family: "Cabinet Grotesk", system-ui, sans-serif;
+  font-weight: 800;
+}
+
+/* Tailwind v4 Configuration */
+@theme {
+  /* Blue scale - custom indigo-blue transition */
+  --color-blue-50: #f4f6ff;
+  --color-blue-100: #e8ecff;
+  --color-blue-200: #d1d9ff;
+  --color-blue-300: #a5b4ff;
+  --color-blue-400: #818cf8;
+  --color-blue-500: #6b7af5;
+  --color-blue-600: #5a67e8;
+  --color-blue-700: #487099;
+  --color-blue-800: #273c53;
+  --color-blue-900: #1c2c3c;
+
+  /* Pink scale - modern Tailwind pink */
+  --color-pink-50: #fdf2f8;
+  --color-pink-100: #fce7f3;
+  --color-pink-200: #fbcfe8;
+  --color-pink-300: #f9a8d4;
+  --color-pink-400: #f472b6;
+  --color-pink-500: #ec4899;
+  --color-pink-600: #db2777;
+  --color-pink-700: #be185d;
+  --color-pink-800: #9d174d;
+  --color-pink-900: #831843;
+}
+
+/* Dark mode configuration for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Drawer/Sheet animations (Radix + Tailwind v4 arbitrary animations) */
+@keyframes overlay-fade-in {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+@keyframes overlay-fade-out {
+  from { opacity: 1 }
+  to { opacity: 0 }
+}
+
+@keyframes sheet-in-right {
+  from { transform: translateX(16px); opacity: 0 }
+  to { transform: translateX(0); opacity: 1 }
+}
+
+@keyframes sheet-out-right {
+  from { transform: translateX(0); opacity: 1 }
+  to { transform: translateX(16px); opacity: 0 }
+}
+
+@keyframes sheet-in-left {
+  from { transform: translateX(-16px); opacity: 0 }
+  to { transform: translateX(0); opacity: 1 }
+}
+
+@keyframes sheet-out-left {
+  from { transform: translateX(0); opacity: 1 }
+  to { transform: translateX(-16px); opacity: 0 }
+}
+
+@keyframes sheet-in-top {
+  from { transform: translateY(-8px); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
+}
+
+@keyframes sheet-out-top {
+  from { transform: translateY(0); opacity: 1 }
+  to { transform: translateY(-8px); opacity: 0 }
+}
+
+@keyframes sheet-in-bottom {
+  from { transform: translateY(8px); opacity: 0 }
+  to { transform: translateY(0); opacity: 1 }
+}
+
+@keyframes sheet-out-bottom {
+  from { transform: translateY(0); opacity: 1 }
+  to { transform: translateY(8px); opacity: 0 }
+}
+
