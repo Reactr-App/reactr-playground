@@ -1,5 +1,4 @@
-'use client';
-
+import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "./lib/theme/ThemeProvider";
 import "./globals.css";
@@ -13,6 +12,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: "Reactr Platform Demos",
+  description: "Interactive UI explorations for creators and supporters",
+};
 
 export default function RootLayout({
   children,
