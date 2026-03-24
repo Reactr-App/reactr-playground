@@ -1,0 +1,203 @@
+import { Locale } from '@interface/email/emailTranslations'
+import { EmailTemplate } from '@interface/email/emailTemplates'
+
+export const creatorColdOutreachGamer = (locale: Locale = 'en', variables: Record<string, string>): EmailTemplate => {
+  const creatorName = variables.creator_name || 'there'
+
+  const subject = `${creatorName}, your fans want to choose what you play next`
+
+  const content = `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta name="x-apple-disable-message-reformatting" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style type="text/css">
+        @media only screen and (max-width: 600px) {
+            .main-content {
+                padding: 28px 20px !important;
+            }
+            .card-padding {
+                padding: 16px !important;
+            }
+            .footer-padding {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+            .logo-container {
+                margin-top: 15px !important;
+                margin-bottom: 15px !important;
+            }
+            h1 {
+                font-size: 24px !important;
+            }
+            .cta-block {
+                padding: 20px 16px !important;
+            }
+        }
+    </style>
+</head>
+<div style="display:none;overflow:hidden;line-height:1px;opacity:0;max-height:0;max-width:0" data-skip-in-text="true">
+    What if your fans could pay you to play exactly what they want to watch?
+</div>
+<body style='background-color:rgb(250,251,251);font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-size:16px;line-height:24px;margin:0;padding:0;'>
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
+        <tbody>
+            <tr>
+                <td style='background-color:rgb(250,251,251);font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-size:16px;line-height:24px'>
+
+                    <!-- Logo -->
+                    <img alt="Reactr" height="75" src="https://proper-cuttlefish-489.convex.cloud/api/storage/563b4b2b-af49-4d2a-9a59-e1e5df5916d2" class="logo-container" style="margin-left:auto;margin-right:auto;margin-top:20px;margin-bottom:20px;display:block;outline:none;border:none;text-decoration:none" width="75" />
+
+                    <!-- Main Content Container -->
+                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" class="main-content" style="background-color:rgb(255,255,255);padding:45px;max-width:37.5em;">
+                        <tbody>
+                            <tr style="width:100%">
+                                <td>
+
+                                    <!-- Header -->
+                                    <h1 style="margin-top:0px;margin-bottom:8px;text-align:center;color:#1f2937;font-size:28px;font-weight:bold;line-height:1.3;">
+                                        Your community already knows what they want to watch you play.
+                                    </h1>
+                                    <p style="text-align:center;color:#667eea;font-size:16px;margin:0 0 32px 0;font-weight:500;">What if they could fund it directly?</p>
+
+                                    <!-- Divider -->
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:28px;">
+                                        <tr><td style="border-top:1px solid #f0f0f0;"></td></tr>
+                                    </table>
+
+                                    <!-- Personal intro -->
+                                    <p style="color:#374151;font-size:16px;line-height:1.7;margin:0 0 16px 0;">
+                                        Hi ${creatorName}, I'm <strong style="color:#1f2937;">Erica</strong>, co-founder of Reactr. I'm reaching out because we built Reactr specifically for creators like you - and it will transform how you monetize your content.
+                                    </p>
+                                    <p style="color:#374151;font-size:16px;line-height:1.7;margin:0 0 28px 0;">
+                                        Here's how it works: your viewers submit the games, challenges, or playthroughs they want to see and they pay to make it happen. You pick what you're excited to play, go live or hit record, and get paid. Your backlog just became a revenue stream.
+                                    </p>
+
+                                    <!-- Value props -->
+                                    <!-- Prop 1 -->
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:12px;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="card-padding" style="padding:20px 24px;">
+                                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                        <tr>
+                                                            <td style="vertical-align:top;width:32px;font-size:20px;line-height:1.4;">🎮</td>
+                                                            <td style="vertical-align:top;padding-left:12px;">
+                                                                <p style="color:#1f2937;font-size:15px;font-weight:700;margin:0 0 4px 0;">Let your community pick the game</p>
+                                                                <p style="color:#6b7280;font-size:14px;line-height:1.6;margin:0;">Fans submit and fund requests — specific titles, challenge runs, genres, whatever they're hyped about. You choose what to play, and they pay for the privilege of watching you do it.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- Prop 2 -->
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:12px;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="card-padding" style="padding:20px 24px;">
+                                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                        <tr>
+                                                            <td style="vertical-align:top;width:32px;font-size:20px;line-height:1.4;">🤝</td>
+                                                            <td style="vertical-align:top;padding-left:12px;">
+                                                                <p style="color:#1f2937;font-size:15px;font-weight:700;margin:0 0 4px 0;">Build a community that's actually invested</p>
+                                                                <p style="color:#6b7280;font-size:14px;line-height:1.6;margin:0;">When viewers fund a playthrough, they show up differently. They're rooting for it. We've seen streams and videos take off when the chat realizes the content exists because one of them made it happen.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- Prop 3 -->
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background-color:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;margin-bottom:28px;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="card-padding" style="padding:20px 24px;">
+                                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                        <tr>
+                                                            <td style="vertical-align:top;width:32px;font-size:20px;line-height:1.4;">💰</td>
+                                                            <td style="vertical-align:top;padding-left:12px;">
+                                                                <p style="color:#1f2937;font-size:15px;font-weight:700;margin:0 0 4px 0;">Get paid to play — no sponsors required</p>
+                                                                <p style="color:#6b7280;font-size:14px;line-height:1.6;margin:0;">No chasing brand deals, no algorithm games. Just your community directly paying for the content they want — and you earning real money doing what you already love.</p>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- CTA card -->
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="background:linear-gradient(135deg, #667eea 0%, #7c8ef0 100%);border-radius:12px;margin-bottom:28px;">
+                                        <tbody>
+                                            <tr>
+                                                <td class="cta-block" style="padding:28px 30px;">
+                                                    <p style="color:#ffffff;font-size:18px;font-weight:700;margin:0 0 10px 0;line-height:1.3;">Want to see how it works for your channel?</p>
+                                                    <p style="color:rgba(255,255,255,0.88);font-size:14px;line-height:1.6;margin:0 0 20px 0;">
+                                                        I'd love to hop on a quick 20-minute call — no pressure, just a real conversation about whether Reactr makes sense for you. I can walk you through exactly how other gaming creators are using it.
+                                                    </p>
+                                                    <a href="mailto:erica@reactr.tv?subject=Reactr%20Intro%20Call" style="display:inline-block;background-color:#ffffff;color:#667eea;font-size:14px;font-weight:700;padding:11px 22px;border-radius:8px;text-decoration:none;">
+                                                        Reply to set up a call →
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!-- Sign-off -->
+                                    <p style="color:#374151;font-size:15px;line-height:1.7;margin:0 0 16px 0;">
+                                        Either way, I hope the streams are going great. You can also explore at <a href="https://reactr.tv" style="color:#667eea;text-decoration:none;">reactr.tv</a> if you'd rather look around on your own first.
+                                    </p>
+                                    <p style="color:#374151;font-size:15px;line-height:1.7;margin:0 0 6px 0;">
+                                        Happy creating,
+                                    </p>
+
+                                    <!-- Signature -->
+                                    <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="margin-bottom:8px;">
+                                        <tr>
+                                            <td style="vertical-align:middle;">
+                                                <p style="color:#1f2937;font-size:15px;font-weight:700;margin:0;">Erica</p>
+                                                <p style="color:#6b7280;font-size:13px;margin:2px 0 0 0;">Co-founder, Reactr &nbsp;·&nbsp; <a href="mailto:erica@reactr.tv" style="color:#667eea;text-decoration:none;">erica@reactr.tv</a></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Footer -->
+                    <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" class="footer-padding" style="margin-top:20px;max-width:37.5em;padding-left:45px;padding-right:45px">
+                        <tbody>
+                            <tr style="width:100%">
+                                <td>
+                                    <p style="margin-bottom:20px;text-align:center;color:rgb(107,114,128);font-size:14px;line-height:24px;margin-top:16px">
+                                        Questions? We're always here to help.
+                                    </p>
+                                    <p style="margin-bottom:45px;text-align:center;color:rgb(156,163,175);font-size:12px;line-height:24px;margin-top:16px">
+                                        <a href="mailto:hello@reactr.tv" style="color:#667eea;text-decoration:none;">hello@reactr.tv</a> &nbsp;•&nbsp;
+                                        <a href="https://reactr.com/help" style="color:#667eea;text-decoration:none;">Help Center</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>`
+
+  return {
+    subject,
+    content,
+  }
+}
